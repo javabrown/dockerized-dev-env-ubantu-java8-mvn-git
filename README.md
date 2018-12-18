@@ -1,10 +1,12 @@
-# Docker - Oracle Java 8 on Ubuntu 16.04 LTS
+# Dockerized dev env on Ubuntu 16.04 LTS
+##### Dockerized dev env with tools e.g. java 8, maven, git, mysql, node etc on Ubuntu 16.04 LTS
 
-Minimal Docker image for Java 8 over Ubuntu 16.04
-via WebUpd8 repo, inspired by @akisei and @makuk66,
-forked from @anapsix
+###### Shared volume:
+	> c:/qlogic-projects:/qlogic-projects)
 
-#RK-Comment:
-#Build Docker Image
-docker build -t ubantu .
-docker run -ti ubantu
+
+#### Build/Run Docker Image
+	$ docker build -t rk-ubantu-env .
+  
+#### Build/Run Docker Image
+	$ docker run -v c:/qlogic-project:/qlogic-projects -ti rk-ubantu-env 
