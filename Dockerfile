@@ -42,7 +42,16 @@ RUN apt-get update && \
 # Install GIT
 RUN apt-get update && \
     apt-get install -y git
- 
+
+# Install NodeJS
+RUN apt-get update && \
+    apt-get install -y nodejs
+	
+# Install NPM
+RUN apt-get update && \
+    apt-get install -y npm
+
+
 # Create a volume
 VOLUME /qlogic-projects
 	
