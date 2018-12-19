@@ -51,6 +51,9 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y npm
 
+# Install Ruby
+RUN apt-get update && \
+    apt-get install -y ruby
 
 # Create a volume
 VOLUME /qlogic-projects
