@@ -89,6 +89,12 @@ RUN apt-get update && \
 
 # ----Google Cloud Lib Build Specific Installation --End-- 
 
+# ---- Gapic Generator Configuration -begin- 
+RUN apt-get update && \
+    git clone https://github.com/googleapis/gapic-generator.git && \
+    cd gapic-generator && \
+    export GOOGLEAPIS_DIR=.  && \
+# ---- Gapic Generator Configuration -end-
      
 # Create a volume
 VOLUME /qlogic-projects
