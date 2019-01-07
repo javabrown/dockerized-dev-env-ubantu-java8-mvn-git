@@ -26,9 +26,9 @@ RUN cd /opt && \
 
 # Installed Gradle
 RUN cd /opt && \
-  wget https://services.gradle.org/distributions/gradle-5.1-src.zip && \
-  tar -xvzf gradle-5.1-src.zip && \
-  mv gradle-5.1-src gradle
+  wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip && \
+  tar -xvzf gradle-3.4.1-bin.zip && \
+  mv gradle-3.4.1-bin.zip gradle
 
 ENV M2_HOME /opt/maven
 ENV PATH  ${M2_HOME}/bin:${PATH}
