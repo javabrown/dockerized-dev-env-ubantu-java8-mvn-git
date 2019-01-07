@@ -72,7 +72,7 @@ RUN apt-get update && \
 
 # Install Pipsi 
  RUN apt-get update && \
-      curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py  && \
+     curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python  && \
       apt-get update
     
 
