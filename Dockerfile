@@ -71,9 +71,9 @@ RUN apt-get update && \
 
 
 # Install Pipsi 
-# RUN apt-get update && \
-#     curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python  && \
-#     apt-get update
+ RUN apt-get update && \
+      curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py  && \
+      apt-get update
     
 
 # Configure Google API
