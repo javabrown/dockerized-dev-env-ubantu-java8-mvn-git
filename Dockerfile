@@ -54,6 +54,10 @@ RUN apt-get update && \
 # Install Ruby
 RUN apt-get update && \
     apt-get install -y ruby
+    
+# Install Python
+RUN apt-get update && \
+    apt-get install -y python    
 
 # Create a volume
 VOLUME /qlogic-projects
