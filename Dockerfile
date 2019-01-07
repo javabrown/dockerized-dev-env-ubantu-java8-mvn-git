@@ -70,11 +70,10 @@ RUN apt-get update && \
     pip install https://github.com/pypa/virtualenv/tarball/master
 
 
-
 # Install Pipsi 
-RUN apt-get update && \
-    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python  && \
-    apt-get update
+# RUN apt-get update && \
+#     curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python  && \
+#     apt-get update
     
 
 # Configure Google API
