@@ -62,7 +62,7 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y python
 
-/* ----Google Cloud Lib Build Specific Installation --Begin--  */
+# ----Google Cloud Lib Build Specific Installation --Begin--
 # Install PIP 
 RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
@@ -87,7 +87,7 @@ RUN apt-get update && \
 RUN apt-get update && \
     git clone https://github.com/googleapis/googleapis.git googleapis/
 
-/* ----Google Cloud Lib Build Specific Installation --End--  */
+# ----Google Cloud Lib Build Specific Installation --End-- 
 
      
 # Create a volume
