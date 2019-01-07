@@ -59,11 +59,12 @@ RUN apt-get update && \
     apt-get install -y ruby
     
 # Install Python
-#RUN apt-get update && \
-#    apt-get install -y python
+RUN apt-get update && \
+    apt-get install -y python
 
 # Install PIP 
 RUN apt-get update && \
+    $PATH=$PATH:~/.local/bin &&\
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py
 
