@@ -66,6 +66,11 @@ RUN apt-get update && \
 RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py
+    
+
+# Configure Google API
+RUN apt-get update && \
+    git clone https://github.com/googleapis/googleapis.git googleapis/
      
 # Create a volume
 VOLUME /qlogic-projects
