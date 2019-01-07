@@ -74,8 +74,7 @@ RUN apt-get update && \
 # Install Pipsi 
 RUN apt-get update && \
     curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python  && \
-    apt-get update && \
-    pipsi install googleapis-artman
+    apt-get update
     
 
 # Configure Google API
@@ -83,8 +82,6 @@ RUN apt-get update && \
     git clone https://github.com/googleapis/googleapis.git googleapis/
 
 
-
-    
      
 # Create a volume
 VOLUME /qlogic-projects
