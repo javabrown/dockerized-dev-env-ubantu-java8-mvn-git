@@ -64,7 +64,6 @@ RUN apt-get update && \
 
 # Install PIP 
 RUN apt-get update && \
-    $PATH=$PATH:~/local/bin &&\
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py
 
@@ -74,7 +73,7 @@ RUN apt-get update && \
 
 # Install Pipsi 
  RUN apt-get update && \
-     curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python  && \
+     curl https://raw.githubusercontent.com/cs01/pipsi/b90d627d39a03112b8ffa583880fab722b435b9b/get-pipsi.py | python  && \
       apt-get update
     
 
