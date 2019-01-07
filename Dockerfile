@@ -67,7 +67,8 @@ RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py && \
     apt-get update && \
-    pip install virtualenv
+    export PYTHONUSERBASE=$HOME  && \
+    pip install --user virtualenv
 
 
 # Install Pipsi 
