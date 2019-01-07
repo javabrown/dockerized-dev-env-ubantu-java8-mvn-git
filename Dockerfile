@@ -68,8 +68,7 @@ RUN apt-get update && \
     python get-pip.py && \
     apt-get update && \
     export PYTHONUSERBASE=$HOME  && \
-    #pip install --user virtualenv
-
+    pip install --user virtualenv
 
 # Install Pipsi 
  RUN apt-get update && \
