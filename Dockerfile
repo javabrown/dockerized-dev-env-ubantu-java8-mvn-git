@@ -67,7 +67,7 @@ RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py && \
     apt-get update && \
-    pip install https://github.com/pypa/virtualenv/tarball/master
+    pip install virtualenv
 
 
 # Install Pipsi 
