@@ -65,10 +65,11 @@ RUN apt-get update && \
 # Install PIP && virtualenv
 RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-    python get-pip.py && \
-    apt-get update && \
-    export PYTHONUSERBASE=$HOME  && \
-    pip install --user virtualenv
+    python get-pip.py
+
+# Install PIP && virtualenv
+RUN apt-get update && \
+    pip install virtualenv
 
 # Install Pipsi 
  RUN apt-get update && \
