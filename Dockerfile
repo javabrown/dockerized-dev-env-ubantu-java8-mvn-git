@@ -74,7 +74,8 @@ RUN apt-get update && \
 # Install Pipsi 
  RUN apt-get update && \
      curl https://raw.githubusercontent.com/cs01/pipsi/b90d627d39a03112b8ffa583880fab722b435b9b/get-pipsi.py | python  && \
-      apt-get update
+      apt-get update && \
+      pipsi install googleapis-artman
     
 
 # Configure Google API
