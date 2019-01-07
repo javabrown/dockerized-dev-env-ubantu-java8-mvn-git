@@ -72,15 +72,11 @@ RUN apt-get update && \
 RUN apt-get update && \
     pip install virtualenv
 
-# Install Pipsi 
+# Install Pipsi & Google Artman 
  RUN apt-get update && \
      curl https://raw.githubusercontent.com/cs01/pipsi/b90d627d39a03112b8ffa583880fab722b435b9b/get-pipsi.py | python  && \
      export PATH=/root/.local/bin:$PATH  && \
      apt-get update && \
-     pipsi install googleapis-artman
-
-# Install Google Artman 
- RUN apt-get update && \
      pipsi install googleapis-artman
 
 # Configure Google API
