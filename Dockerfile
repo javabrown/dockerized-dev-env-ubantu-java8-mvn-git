@@ -64,7 +64,7 @@ RUN apt-get update && \
 
 # Install PIP 
 RUN apt-get update && \
-    $PATH=$PATH:~/.local/bin &&\
+    $PATH=$PATH:~/local/bin &&\
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py
 
