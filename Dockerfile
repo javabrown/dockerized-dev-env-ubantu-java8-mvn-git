@@ -59,15 +59,15 @@ RUN apt-get update && \
     apt-get install -y ruby
     
 # Install Python
-RUN apt-get update && \
-    apt-get install -y python
+#RUN apt-get update && \
+#    apt-get install -y python
 
-# Install PIP && virtualenv
+# Install PIP 
 RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py
 
-# Install PIP && virtualenv
+# Install virtualenv 
 RUN apt-get update && \
     pip install virtualenv
 
