@@ -25,7 +25,7 @@ RUN cd /opt && \
   mv apache-maven-3.3.9 maven
 
 # Installed Gradle
-RUN apt-get update && \
+RUN apt-get -y update && \
   apt-get install gradle
 
 ENV M2_HOME /opt/maven
