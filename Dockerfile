@@ -24,6 +24,12 @@ RUN cd /opt && \
   tar -xvzf apache-maven-3.3.9-bin.tar.gz && \
   mv apache-maven-3.3.9 maven
 
+# Installed Gradle
+RUN cd /opt && \
+  wget https://services.gradle.org/distributions/gradle-5.1-src.zip && \
+  tar -xvzf gradle-5.1-src.zip && \
+  mv gradle-5.1-src gradle
+
 ENV M2_HOME /opt/maven
 ENV PATH  ${M2_HOME}/bin:${PATH}
 
