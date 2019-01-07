@@ -62,6 +62,7 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y python
 
+/* ----Google Cloud Lib Build Specific Installation --Begin--  */
 # Install PIP 
 RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
@@ -77,12 +78,16 @@ RUN apt-get update && \
      export PATH=/root/.local/bin:$PATH  && \
      apt-get update && \
      pipsi install googleapis-artman
-    
+
+# Install Google Artman 
+ RUN apt-get update && \
+     pipsi install googleapis-artman
 
 # Configure Google API
 RUN apt-get update && \
     git clone https://github.com/googleapis/googleapis.git googleapis/
 
+/* ----Google Cloud Lib Build Specific Installation --End--  */
 
      
 # Create a volume
