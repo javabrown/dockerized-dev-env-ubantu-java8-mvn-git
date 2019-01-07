@@ -25,10 +25,8 @@ RUN cd /opt && \
   mv apache-maven-3.3.9 maven
 
 # Installed Gradle
-RUN cd /opt && \
-  add-apt-repository ppa:cwchien/gradle && \
-  apt-get update && \
-  mv apt upgrade gradle
+RUN apt-get update && \
+  apt-get install gradle
 
 ENV M2_HOME /opt/maven
 ENV PATH  ${M2_HOME}/bin:${PATH}
