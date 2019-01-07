@@ -62,18 +62,18 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y python
 
-# Install PIP
+# Install PIP && virtualenv
 RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py && \
     apt-get update && \
-    pip install virtualenv
+    pip install https://github.com/pypa/virtualenv/tarball/master
 
 
 
 # Install Pipsi 
 RUN apt-get update && \
-    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python && \
+    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py && \
     pipsi install googleapis-artman
     
 
