@@ -27,6 +27,9 @@ RUN cd /opt && \
 ENV M2_HOME /opt/maven
 ENV PATH  ${M2_HOME}/bin:${PATH}
 
+# Install CURL
+RUN apt-get update && \
+    apt-get install -y curl
 
 # Installed VI
 RUN apt-get update && \
@@ -57,8 +60,13 @@ RUN apt-get update && \
     
 # Install Python
 RUN apt-get update && \
-    apt-get install -y python    
+    apt-get install -y python
 
+# Install PIP
+RUN apt-get update && \
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+    python get-pip.py
+     
 # Create a volume
 VOLUME /qlogic-projects
 	
