@@ -92,7 +92,7 @@ RUN apt-get update && \
 # ---- Gapic Generator Configuration -begin- 
  RUN apt-get update && \
      git clone https://github.com/googleapis/gapic-generator.git gapic-generator/
-     export GOOGLEAPIS_DIR=gapic-generator/  && \
+     #export GOOGLEAPIS_DIR=gapic-generator/  && \
 # ---- Gapic Generator Configuration -end-
      
 # Create a volume
