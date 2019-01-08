@@ -94,15 +94,10 @@ RUN apt-get update && \
  RUN apt-get update && \
      curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip  && \
      unzip protoc-3.3.0-linux-x86_64.zip -d protoc3  && \
-     mv protoc3/bin/* /usr/local/bin/  && \
-     mv protoc3/include/* /usr/local/include/  && \
+     # mv protoc3/bin/* /usr/local/bin/  && \
+     # mv protoc3/include/* /usr/local/include/  && \
      
      
-# Installed Maven
-RUN cd /opt && \
-  wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz && \
-  tar -xvzf apache-maven-3.3.9-bin.tar.gz && \
-  mv apache-maven-3.3.9 maven
   
  RUN apt-get update && \
      git clone https://github.com/googleapis/gapic-generator.git gapic-generator/
