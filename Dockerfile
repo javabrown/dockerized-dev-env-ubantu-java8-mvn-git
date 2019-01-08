@@ -93,8 +93,8 @@ RUN apt-get update && \
 # ---- Gapic Generator Configuration -begin- 
 RUN apt-get update && \
   wget https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip && \
-  tar -xvzf protoc-3.3.0-linux-x86_64.zip && \
-  mv protoc-3.3.0-linux-x86_64 protoc3
+  unzip protoc-3.3.0-linux-x86_64.zip -d protoc3 && \
+   
   
  RUN apt-get update && \
      curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip  && \
