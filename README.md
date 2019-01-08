@@ -9,4 +9,4 @@
 	$ docker build -t rk-ubantu-env .
   
 #### Build/Run Docker Image
-	$ docker run -v c:/qlogic-project:/qlogic-projects -ti rk-ubantu-env 
+	$ docker run -v c:/qlogic-projects:/qlogic-projects -ti rk-ubantu-env 
