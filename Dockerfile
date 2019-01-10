@@ -76,42 +76,81 @@ RUN apt-get update && \
 RUN apt-get update && \
     pip install virtualenv
 
-# Install Pipsi & Google Artman 
- RUN apt-get update && \
-     curl https://raw.githubusercontent.com/cs01/pipsi/b90d627d39a03112b8ffa583880fab722b435b9b/get-pipsi.py | python  && \
-     export PATH=/root/.local/bin:$PATH  && \
-     apt-get update && \
-     pipsi install googleapis-artman
-
-# Configure Google API
-RUN apt-get update && \
-    git clone https://github.com/googleapis/googleapis.git googleapis/
+#Install pipsi
+RUN apt-get update && \ 
+    curl https://raw.githubusercontent.com/cs01/pipsi/b90d627d39a03112b8ffa583880fab722b435b9b/get-pipsi.py | python  && \ 
+	mv /root/.local/bin/* /usr/local/bin/ 
 
 # ----Google Cloud Lib Build Specific Installation --End-- 
 
 
 # ---- Gapic Generator Configuration -begin- 
+
+RUN echo >***Installing protoc
 RUN apt-get update && \
   wget https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip && \
   unzip protoc-3.3.0-linux-x86_64.zip -d protoc3 && \
   mv protoc3/bin/* /usr/local/bin/ && \
   mv protoc3/include/* /usr/local/include/
-   
-  
- #RUN apt-get update && \
-  #   curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip  && \
-  #   apt-get update && \
-  #   unzip protoc-3.3.0-linux-x86_64.zip -d protoc3  && \
-     # mv protoc3/bin/* /usr/local/bin/  && \
-     # mv protoc3/include/* /usr/local/include/  && \
-     
-     
-  
- RUN apt-get update && \
-     git clone https://github.com/googleapis/gapic-generator.git gapic-generator/
-     #export GOOGLEAPIS_DIR=gapic-generator/  && \
+ 
+ENV PROTOC_INCLUDE_DIR /usr/local/include/
+
+
+
+RUN echo >***Installing Artman***
+RUN apt-get update && \ 
+    pipsi install googleapis-artman &&\ 
+	mv /root/.local/bin/artman /usr/local/bin/ && \
+    mv /root/.local/bin/configure-artman /usr/local/bin/ && \
+	mv /root/.local/bin/start-artman-conductor /usr/local/bin/ && \
+	mv /root/.local/bin/smoketest_artman.py /usr/local/bin/
+
+
+#  discovery-artifact-manager/generate_library
+RUN pip install google-apis-client-generator
+
+
+# Cloned gapic-generator
+#RUN apt-get update && \
+#    git clone https://github.com/googleapis/gapic-generator.git gapic-generator/
+ 
+
+# Cloned googleapis
+#RUN apt-get update && \
+#    git clone https://github.com/googleapis/googleapis.git googleapis/
+
+	
+	
+#RUN apt-get update && \
+#    cd /gapic-generator/ && \
+
+#RUN apt-get update && \
+#    export GOOGLEAPIS_DIR=/gapic-generator/
+
+#ENV GAPIC_GENERATOR_DIR googleapis/gapic-generator
+#ENV GOOGLEAPIS_DIR googleapis/googleapis
+#	 
 # ---- Gapic Generator Configuration -end-
+
+
+#**Installing Doker | docker demon wont work, need fix for docker-in-docker
+RUN apt-get update && \
+apt-get -y install apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common && \
+curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable" && \
+apt-get update && \
+apt-get -y install docker-ce
+
      
 # Create a volume
 VOLUME /qlogic-projects
-	
+
+
+RUN echo ***********DONE************
