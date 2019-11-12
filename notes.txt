@@ -1,6 +1,5 @@
 #!/bin/bash
-yum install httpd -y
-systemctl start httpd
-systemctl stop firewalld
+yum -y install httpd
+service httpd start
 cd /var/www/html
 echo "this is my test site" > index.html
